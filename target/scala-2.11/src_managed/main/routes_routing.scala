@@ -1,6 +1,6 @@
 // @SOURCE:/home/petr/Dropbox/omp4j/www/conf/routes
-// @HASH:4f41fe2b6f59f0d1d4aec1fd7f4615d1d3133677
-// @DATE:Tue Sep 02 20:16:30 CEST 2014
+// @HASH:439b23b4cb78d7dae129643d7d66e6614be0552c
+// @DATE:Tue Sep 02 21:48:01 CEST 2014
 
 
 import play.core._
@@ -34,17 +34,38 @@ lazy val defaultPrefix = { if(Routes.prefix.endsWith("/")) "" else "/" }
 // @LINE:6
 private[this] lazy val controllers_Application_index0_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix))))
 private[this] lazy val controllers_Application_index0_invoker = createInvoker(
-controllers.Application.index,
-HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "index", Nil,"GET", """ Home page""", Routes.prefix + """"""))
+controllers.Application.index(fakeValue[String]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "index", Seq(classOf[String]),"GET", """ Home page""", Routes.prefix + """"""))
         
 
-// @LINE:9
-private[this] lazy val controllers_Assets_at1_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
-private[this] lazy val controllers_Assets_at1_invoker = createInvoker(
+// @LINE:7
+private[this] lazy val controllers_Demo_translate1_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("demo/translate"))))
+private[this] lazy val controllers_Demo_translate1_invoker = createInvoker(
+controllers.Demo.translate(fakeValue[String]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Demo", "translate", Seq(classOf[String]),"POST", """""", Routes.prefix + """demo/translate"""))
+        
+
+// @LINE:8
+private[this] lazy val controllers_Application_loadPublicHTML2_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("views/"),DynamicPart("any", """.+""",false))))
+private[this] lazy val controllers_Application_loadPublicHTML2_invoker = createInvoker(
+controllers.Application.loadPublicHTML(fakeValue[String]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "loadPublicHTML", Seq(classOf[String]),"GET", """""", Routes.prefix + """views/$any<.+>"""))
+        
+
+// @LINE:14
+private[this] lazy val controllers_Assets_at3_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_Assets_at3_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+
+// @LINE:17
+private[this] lazy val controllers_Application_index4_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),DynamicPart("any", """.+""",false))))
+private[this] lazy val controllers_Application_index4_invoker = createInvoker(
+controllers.Application.index(fakeValue[String]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "index", Seq(classOf[String]),"GET", """ Redirect all unknown routes to the index page""", Routes.prefix + """$any<.+>"""))
+        
+def documentation = List(("""GET""", prefix,"""controllers.Application.index(any:String = "none")"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """demo/translate""","""controllers.Demo.translate(code:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """views/$any<.+>""","""controllers.Application.loadPublicHTML(any:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """$any<.+>""","""controllers.Application.index(any:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}
@@ -54,16 +75,40 @@ def routes:PartialFunction[RequestHeader,Handler] = {
 
 // @LINE:6
 case controllers_Application_index0_route(params) => {
-   call { 
-        controllers_Application_index0_invoker.call(controllers.Application.index)
+   call(Param[String]("any", Right("none"))) { (any) =>
+        controllers_Application_index0_invoker.call(controllers.Application.index(any))
    }
 }
         
 
-// @LINE:9
-case controllers_Assets_at1_route(params) => {
+// @LINE:7
+case controllers_Demo_translate1_route(params) => {
+   call(params.fromQuery[String]("code", None)) { (code) =>
+        controllers_Demo_translate1_invoker.call(controllers.Demo.translate(code))
+   }
+}
+        
+
+// @LINE:8
+case controllers_Application_loadPublicHTML2_route(params) => {
+   call(params.fromPath[String]("any", None)) { (any) =>
+        controllers_Application_loadPublicHTML2_invoker.call(controllers.Application.loadPublicHTML(any))
+   }
+}
+        
+
+// @LINE:14
+case controllers_Assets_at3_route(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at1_invoker.call(controllers.Assets.at(path, file))
+        controllers_Assets_at3_invoker.call(controllers.Assets.at(path, file))
+   }
+}
+        
+
+// @LINE:17
+case controllers_Application_index4_route(params) => {
+   call(params.fromPath[String]("any", None)) { (any) =>
+        controllers_Application_index4_invoker.call(controllers.Application.index(any))
    }
 }
         
