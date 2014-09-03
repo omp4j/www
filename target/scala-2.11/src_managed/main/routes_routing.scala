@@ -1,6 +1,6 @@
 // @SOURCE:/home/petr/Dropbox/omp4j/www/conf/routes
 // @HASH:b8eb320f9a891193257b4305ceadafca8d7880fa
-// @DATE:Wed Sep 03 15:32:10 CEST 2014
+// @DATE:Wed Sep 03 15:42:13 CEST 2014
 
 
 import play.core._
