@@ -1,6 +1,6 @@
 // @SOURCE:/home/petr/Dropbox/omp4j/www/conf/routes
-// @HASH:12130a4e8af0431d3c97e220073f84f13c4d60a3
-// @DATE:Wed Sep 03 11:04:58 CEST 2014
+// @HASH:d4cf6746cee38d579c0221eb3a89e91eed48c708
+// @DATE:Wed Sep 03 12:49:41 CEST 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -14,18 +14,18 @@ import _root_.controllers.Assets.Asset
 import Router.queryString
 
 
-// @LINE:17
-// @LINE:14
 // @LINE:8
-// @LINE:7
-// @LINE:6
+// @LINE:5
+// @LINE:4
+// @LINE:3
+// @LINE:2
 package controllers {
 
-// @LINE:7
+// @LINE:3
 class ReverseDemo {
 
 
-// @LINE:7
+// @LINE:3
 def translate(): Call = {
    import ReverseRouteContext.empty
    Call("POST", _prefix + { _defaultPrefix } + "demo/translate")
@@ -35,11 +35,11 @@ def translate(): Call = {
 }
                           
 
-// @LINE:14
+// @LINE:5
 class ReverseAssets {
 
 
-// @LINE:14
+// @LINE:5
 def at(file:String): Call = {
    implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
@@ -49,29 +49,29 @@ def at(file:String): Call = {
 }
                           
 
-// @LINE:17
 // @LINE:8
-// @LINE:6
+// @LINE:4
+// @LINE:2
 class ReverseApplication {
 
 
-// @LINE:8
+// @LINE:4
 def loadPublicHTML(any:String): Call = {
    import ReverseRouteContext.empty
    Call("GET", _prefix + { _defaultPrefix } + "views/" + implicitly[PathBindable[String]].unbind("any", any))
 }
                         
 
-// @LINE:17
-// @LINE:6
+// @LINE:8
+// @LINE:2
 def index(any:String): Call = {
    (any: @unchecked) match {
-// @LINE:6
+// @LINE:2
 case (any) if any == "none" =>
   implicit val _rrc = new ReverseRouteContext(Map(("any", "none")))
   Call("GET", _prefix)
                                          
-// @LINE:17
+// @LINE:8
 case (any)  =>
   import ReverseRouteContext.empty
   Call("GET", _prefix + { _defaultPrefix } + implicitly[PathBindable[String]].unbind("any", any))
@@ -86,19 +86,19 @@ case (any)  =>
                   
 
 
-// @LINE:17
-// @LINE:14
 // @LINE:8
-// @LINE:7
-// @LINE:6
+// @LINE:5
+// @LINE:4
+// @LINE:3
+// @LINE:2
 package controllers.javascript {
 import ReverseRouteContext.empty
 
-// @LINE:7
+// @LINE:3
 class ReverseDemo {
 
 
-// @LINE:7
+// @LINE:3
 def translate : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Demo.translate",
    """
@@ -112,11 +112,11 @@ def translate : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:14
+// @LINE:5
 class ReverseAssets {
 
 
-// @LINE:14
+// @LINE:5
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -130,13 +130,13 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:17
 // @LINE:8
-// @LINE:6
+// @LINE:4
+// @LINE:2
 class ReverseApplication {
 
 
-// @LINE:8
+// @LINE:4
 def loadPublicHTML : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.loadPublicHTML",
    """
@@ -147,8 +147,8 @@ def loadPublicHTML : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:17
-// @LINE:6
+// @LINE:8
+// @LINE:2
 def index : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.index",
    """
@@ -170,19 +170,19 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:17
-// @LINE:14
 // @LINE:8
-// @LINE:7
-// @LINE:6
+// @LINE:5
+// @LINE:4
+// @LINE:3
+// @LINE:2
 package controllers.ref {
 
 
-// @LINE:7
+// @LINE:3
 class ReverseDemo {
 
 
-// @LINE:7
+// @LINE:3
 def translate(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Demo.translate(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Demo", "translate", Seq(), "POST", """""", _prefix + """demo/translate""")
 )
@@ -191,32 +191,32 @@ def translate(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:14
+// @LINE:5
 class ReverseAssets {
 
 
-// @LINE:14
+// @LINE:5
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Assets.at(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
+   controllers.Assets.at(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """assets/$file<.+>""")
 )
                       
 
 }
                           
 
-// @LINE:17
 // @LINE:8
-// @LINE:6
+// @LINE:4
+// @LINE:2
 class ReverseApplication {
 
 
-// @LINE:8
+// @LINE:4
 def loadPublicHTML(any:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.loadPublicHTML(any), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "loadPublicHTML", Seq(classOf[String]), "GET", """""", _prefix + """views/$any<.+>""")
 )
                       
 
-// @LINE:6
+// @LINE:2
 def index(any:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.index(any), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "index", Seq(classOf[String]), "GET", """ Home page""", _prefix + """""")
 )
