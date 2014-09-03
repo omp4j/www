@@ -19,6 +19,9 @@ else
 	play clean compile stage
 fi
 
+echo "[info] running: activator clean compile stage"
+activator clean compile stage
+
 echo "[info] running: git add . -A"
 git add . -A
 
