@@ -31,37 +31,37 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 </head>
 <body>
 
-<!-- menu -->
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">omp4j</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="home">Home <span class="glyphicon glyphicon-home"></a></li>
-            <li><a href="download">Download <span class="glyphicon glyphicon-cloud-download"></a></li>
-            <li><a href="tutorial">Tutorial <span class="glyphicon glyphicon-book"></a></li>
-            <li><a href="api">API doc <span class="glyphicon glyphicon-info-sign"></a></li>
-            <li><a href="authors">Authors <span class="glyphicon glyphicon-user"></a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://github.com/omp4j/omp4j" target="_blank">Source <span class="glyphicon glyphicon-cloud"></a></li>
-            <li><a href="demo">Demo <span class="glyphicon glyphicon-cloud-upload"></span></a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-<!-- /menu -->
+	<!-- menu -->
+	<div class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">omp4j</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="home">Home <span class="glyphicon glyphicon-home"></a></li>
+					<li><a href="download">Download <span class="glyphicon glyphicon-cloud-download"></a></li>
+					<li><a href="tutorial">Tutorial <span class="glyphicon glyphicon-book"></a></li>
+					<li><a href="api">API doc <span class="glyphicon glyphicon-info-sign"></a></li>
+					<li><a href="authors">Authors <span class="glyphicon glyphicon-user"></a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="https://github.com/omp4j/omp4j" target="_blank">Source <span class="glyphicon glyphicon-cloud"></a></li>
+					<li><a href="demo">Demo <span class="glyphicon glyphicon-cloud-upload"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
+	<!-- /menu -->
 
 	<div role="main" class="container">
-				<div data-ng-view></div>
+		<div data-ng-view></div>
 	</div>
 	
 	<script src=""""),_display_(/*46.16*/routes/*46.22*/.Assets.at("third/jquery/jquery-1.10.2.min.js")),format.raw/*46.69*/("""" type="text/javascript"></script>
@@ -83,10 +83,10 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 }
               /*
                   -- GENERATED --
-                  DATE: Wed Sep 03 13:10:02 CEST 2014
+                  DATE: Wed Sep 03 15:32:11 CEST 2014
                   SOURCE: /home/petr/Dropbox/omp4j/www/app/views/index.scala.html
-                  HASH: 52e230649a3c7958e7f95ce7e5c42de779a9db52
-                  MATRIX: 580->0|775->169|789->175|861->226|936->275|950->281|1028->338|1103->387|1117->393|1171->427|1251->481|1265->487|1317->519|2934->2109|2949->2115|3017->2162|3094->2212|3109->2218|3179->2267|3256->2317|3271->2323|3336->2367|3413->2417|3428->2423|3502->2476|3579->2526|3594->2532|3648->2565
+                  HASH: d4afddb72298ae4d8f434e57fb9bcb73d01734b9
+                  MATRIX: 580->0|775->169|789->175|861->226|936->275|950->281|1028->338|1103->387|1117->393|1171->427|1251->481|1265->487|1317->519|2781->1956|2796->1962|2864->2009|2941->2059|2956->2065|3026->2114|3103->2164|3118->2170|3183->2214|3260->2264|3275->2270|3349->2323|3426->2373|3441->2379|3495->2412
                   LINES: 22->1|27->6|27->6|27->6|28->7|28->7|28->7|29->8|29->8|29->8|30->9|30->9|30->9|67->46|67->46|67->46|68->47|68->47|68->47|69->48|69->48|69->48|70->49|70->49|70->49|71->50|71->50|71->50
                   -- GENERATED --
               */

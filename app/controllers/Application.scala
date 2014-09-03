@@ -12,11 +12,6 @@ object Application extends Controller {
 	def index(any: String) = Action { Ok(views.html.index()) }
 
 	/** resolve "any" into the corresponding HTML page URI */
-	// def getURI(any: String): String = any match {
-	//   case "demo" => "/public/html/demo.html"
-	//   case "main" => "/public/html/main.html"
-	//   case _ => "error"
-	// }
 	def getURI(any: String): String = s"/public/html/$any.html"
 
 	/** load an HTML page from public/html */

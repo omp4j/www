@@ -1,6 +1,6 @@
 // @SOURCE:/home/petr/Dropbox/omp4j/www/conf/routes
-// @HASH:d4cf6746cee38d579c0221eb3a89e91eed48c708
-// @DATE:Wed Sep 03 13:10:01 CEST 2014
+// @HASH:b8eb320f9a891193257b4305ceadafca8d7880fa
+// @DATE:Wed Sep 03 15:32:10 CEST 2014
 
 
 import play.core._
@@ -59,13 +59,20 @@ controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """""", Routes.prefix + """assets/$file<.+>"""))
         
 
-// @LINE:8
-private[this] lazy val controllers_Application_index4_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),DynamicPart("any", """.+""",false))))
-private[this] lazy val controllers_Application_index4_invoker = createInvoker(
+// @LINE:6
+private[this] lazy val controllers_Assets_at4_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("public/"),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_Assets_at4_invoker = createInvoker(
+controllers.Assets.at(fakeValue[String], fakeValue[String]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """""", Routes.prefix + """public/$file<.+>"""))
+        
+
+// @LINE:9
+private[this] lazy val controllers_Application_index5_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),DynamicPart("any", """.+""",false))))
+private[this] lazy val controllers_Application_index5_invoker = createInvoker(
 controllers.Application.index(fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "index", Seq(classOf[String]),"GET", """ Redirect all unknown routes to the index page""", Routes.prefix + """$any<.+>"""))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index(any:String = "none")"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """demo/translate""","""controllers.Demo.translate"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """views/$any<.+>""","""controllers.Application.loadPublicHTML(any:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """$any<.+>""","""controllers.Application.index(any:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix,"""controllers.Application.index(any:String = "none")"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """demo/translate""","""controllers.Demo.translate"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """views/$any<.+>""","""controllers.Application.loadPublicHTML(any:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """public/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """$any<.+>""","""controllers.Application.index(any:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}
@@ -105,10 +112,18 @@ case controllers_Assets_at3_route(params) => {
 }
         
 
-// @LINE:8
-case controllers_Application_index4_route(params) => {
+// @LINE:6
+case controllers_Assets_at4_route(params) => {
+   call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
+        controllers_Assets_at4_invoker.call(controllers.Assets.at(path, file))
+   }
+}
+        
+
+// @LINE:9
+case controllers_Application_index5_route(params) => {
    call(params.fromPath[String]("any", None)) { (any) =>
-        controllers_Application_index4_invoker.call(controllers.Application.index(any))
+        controllers_Application_index5_invoker.call(controllers.Application.index(any))
    }
 }
         

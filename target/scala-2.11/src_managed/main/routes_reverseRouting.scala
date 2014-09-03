@@ -1,6 +1,6 @@
 // @SOURCE:/home/petr/Dropbox/omp4j/www/conf/routes
-// @HASH:d4cf6746cee38d579c0221eb3a89e91eed48c708
-// @DATE:Wed Sep 03 13:10:01 CEST 2014
+// @HASH:b8eb320f9a891193257b4305ceadafca8d7880fa
+// @DATE:Wed Sep 03 15:32:10 CEST 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -14,7 +14,8 @@ import _root_.controllers.Assets.Asset
 import Router.queryString
 
 
-// @LINE:8
+// @LINE:9
+// @LINE:6
 // @LINE:5
 // @LINE:4
 // @LINE:3
@@ -35,21 +36,28 @@ def translate(): Call = {
 }
                           
 
+// @LINE:6
 // @LINE:5
 class ReverseAssets {
 
 
+// @LINE:6
 // @LINE:5
 def at(file:String): Call = {
-   implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
-   Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
+   (file: @unchecked) match {
+// @LINE:5
+case (file)  =>
+  implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
+  Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
+                                         
+   }
 }
-                        
+                                                
 
 }
                           
 
-// @LINE:8
+// @LINE:9
 // @LINE:4
 // @LINE:2
 class ReverseApplication {
@@ -62,7 +70,7 @@ def loadPublicHTML(any:String): Call = {
 }
                         
 
-// @LINE:8
+// @LINE:9
 // @LINE:2
 def index(any:String): Call = {
    (any: @unchecked) match {
@@ -71,7 +79,7 @@ case (any) if any == "none" =>
   implicit val _rrc = new ReverseRouteContext(Map(("any", "none")))
   Call("GET", _prefix)
                                          
-// @LINE:8
+// @LINE:9
 case (any)  =>
   import ReverseRouteContext.empty
   Call("GET", _prefix + { _defaultPrefix } + implicitly[PathBindable[String]].unbind("any", any))
@@ -86,7 +94,8 @@ case (any)  =>
                   
 
 
-// @LINE:8
+// @LINE:9
+// @LINE:6
 // @LINE:5
 // @LINE:4
 // @LINE:3
@@ -112,16 +121,23 @@ def translate : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:6
 // @LINE:5
 class ReverseAssets {
 
 
+// @LINE:6
 // @LINE:5
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
       function(file) {
+      if (true) {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("file", file)})
+      }
+      if (true) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "public/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("file", file)})
+      }
       }
    """
 )
@@ -130,7 +146,7 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:8
+// @LINE:9
 // @LINE:4
 // @LINE:2
 class ReverseApplication {
@@ -147,7 +163,7 @@ def loadPublicHTML : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:8
+// @LINE:9
 // @LINE:2
 def index : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.index",
@@ -170,7 +186,8 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:8
+// @LINE:9
+// @LINE:6
 // @LINE:5
 // @LINE:4
 // @LINE:3
@@ -191,6 +208,7 @@ def translate(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
+// @LINE:6
 // @LINE:5
 class ReverseAssets {
 
@@ -204,7 +222,7 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 }
                           
 
-// @LINE:8
+// @LINE:9
 // @LINE:4
 // @LINE:2
 class ReverseApplication {
