@@ -1,7 +1,7 @@
 omp4j WWW presentation
 ======================
 
-This is the main repository of (www-omp4j.rhcloud.com)[https://www-omp4j.rhcloud.com]. Due to RedHat OpenShift PaaS hosting, this repository contains also binaries.
+This is the main repository of https://www-omp4j.rhcloud.com. Due to RedHat OpenShift PaaS hosting, this repository contains also binaries.
 
 Used technologies
 -----------------
