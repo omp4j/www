@@ -15,11 +15,18 @@ object Application extends Controller {
 	def getURI(any: String): String = s"/public/html/$any.html"
 
 	/** load an HTML page from public/html */
-	def loadPublicHTML(any: String) = Action {
+	def loadPublicHTML(any: String) = Action { implicit request =>
 		val projectRoot = Play.application.path()
 		var file = new File(projectRoot + getURI(any))
 		println(file.getAbsolutePath())
 		println(file.exists())
+		
+		//println(request.getBase())
+		//println(request.url)
+		println(request.domain)
+		println(request.host)
+
+
 		if (file.exists())
 			Ok(scala.io.Source.fromFile(file.getCanonicalPath(), "UTF-8").mkString).as("text/html");
 		else
