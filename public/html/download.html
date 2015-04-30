@@ -3,13 +3,47 @@
 		<div class="page-header">
 			<h1>Download <small>everything</small></h1>
 		</div>
-		You can download either from source or as build <code>.jar</code>.
 
-		<h2>Releases</h2>
+		<p class="lead">
+			Getting started with <code>omp4j</code> is very easy. Choose either a simple or a geeky version and let it run.
+		</p>
+
+		<!-- ------------------------------------------------------------------------------------------------------- -->
+		<hr/>
+		<h2>The Easy Way <small>recommended</small></h2>
+		<p>
+			The easiest way of obtaining <code>omp4j</code> is as follows.
+		</p>
+
+		<ol>
+			<li>Make sure that a common JDK is installed (OracleJDK 7/8 or OpenJDK 6/7)</li>
+			<li>Download one of the listed JARs below (latest version suggested)</li>
+			<li>Create a shell alias for <code>omp4j</code> in form of <code>java -jar &lt;path-to-JAR&gt;</code></li>
+		</ol>
+
+		<h3>Releases</h3>
 		<ul>
-			<li>0.2</li>
-			<li>0.1.2</li>
-			<li>0.1</li>
+			<li><a href="#">0.1</a></li>
 		</ul>
+
+		<!-- ------------------------------------------------------------------------------------------------------- -->
+		<hr/>
+		<h2>The Hard Way <small>for hackers</small></h2>
+		<p>
+			If you for some reason intend to compile <code>omp4j</code> by yourself, follow these instructions. We expect
+			you to be an advanced UNIX user.
+		</p>
+
+		<ol>
+			<li>Make sure that a common JDK is installed (OracleJDK 7/8 or OpenJDK 6/7)</li>
+			<li>Make sure that all following programs are installed - <code>Scala2.9.2+</code>, <code>sbt0.13.5+</code>, <code>git</code></li>
+			<li>Clone the repository via <code>git clone git@github.com:omp4j/omp4j.git --recursive</code></li>
+			<li><code>cd</code> into <code>src/main/java</code> and execute <code>update.sh</code></li>
+			<li><code>cd</code> back to project root and invoke <code>sbt</code></li>
+			<li>Now you may use <code>sbt</code> commands such as <code>compile</code>, <code>run</code>, <code>test</code> and <code>assembly</code></li>
+		</ol>
+
+
+
 	</div>
 </div>

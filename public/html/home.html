@@ -1,89 +1,43 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="page-header">
-			<h1>OpenMP <small>for Java6/7/8</small></h1>
+			<h1>OpenMP <small>for Java 6/7/8</small></h1>
 		</div>
 
-		<div id="homepage-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#homepage-carousel" data-slide-to="0" class="active"></li>
-				<li data-target="#homepage-carousel" data-slide-to="1"></li>
-				<li data-target="#homepage-carousel" data-slide-to="2"></li>
-			</ol>
-
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner">
-				<div class="item active">
-					<img src="/assets/images/student.jpg" alt="For students">
-					<div class="carousel-caption">
-						<h3>For students</h3>
-						<p>Easy Java parallelization - stop struggling with Java threads!</p>
-					</div>
-				</div>
-				<div class="item">
-					<img src="/assets/images/business.jpg" alt="For business">
-					<div class="carousel-caption">
-						<h3>For business</h3>
-						<p>Speed up your development process for free!</p>
-					</div>
-				</div>
-				<div class="item">
-					<img src="/assets/images/freedom.jpg" alt="Freedom">
-					<div class="carousel-caption">
-						<h3>Freedom</h3>
-						<p>omp4j is opensource and uses opensource technologies</p>
-					</div>
-				</div>
-			</div>
-
-			<!-- Controls -->
-			<a class="left carousel-control" href="#homepage-carousel" role="button" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left"></span>
-			</a>
-			<a class="right carousel-control" href="#homepage-carousel" role="button" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right"></span>
-			</a>
+		<div class="jumbotron">
+			<p>
+				<code>omp4j</code> is an open-source OpenMP-like preprocessor for Java. It is easy-to-use, user-friendly
+				and fun. Discover enjoyable way of portable and  highly scalable multiprocessing in Java.
+			</p>
+			<p>
+				All you need to do is write a proper comment before the serially invoked for-loop. Any child can do it!
+			</p>
+			<p>
+				<a class="btn btn-lg btn-primary" href="/tutorial" role="button">Discover &raquo;</a>
+			</p>
 		</div>
-
-		<script type="text/javascript">
-			$('#homepage-carousel').carousel();
-		</script>
 
 	</div>
 </div>
 
-<!-- <div class="row">
-	<div class="col-md-2 col-md-offset-1">
-		<span class="glyphicon glyphicon-cloud-download"></span>
-	</div>
-	
-	<div class="col-md-2 col-md-offset-2">
-		<span class="glyphicon glyphicon-book"></span>
-	</div>
-	
-	<div class="col-md-2 col-md-offset-2">
-		<span class="glyphicon glyphicon-cloud-upload"></span>
-	</div>
-</div>
- -->
+<!-- =============================================================================================================== -->
 
-<div class="row text-center" style="margin-top:40px;">
-<hr/>
+<div class="row text-center">
+	<hr/>
 	<div class="col-md-4">
 		<h3><a href="/download">Download omp4j!</a></h3>
 		<p>
 			Download the preprocessor or the source itself.
 		</p>
 	</div>
-	
+
 	<div class="col-md-4">
 		<h3><a href="/tutorial">Get started!</a></h3>
 		<p>
 			Walk through the tutorial and examples.
 		</p>
 	</div>
-	
+
 	<div class="col-md-4">
 		<h3><a href="/demo">Try it online!</a></h3>
 		<p>
@@ -91,3 +45,95 @@
 		</p>
 	</div>
 </div>
+
+<!-- =============================================================================================================== -->
+
+<div class="row">
+	<div class="col-md-12">
+
+		<!-- ------------------------------------------------------------------------------------------------------- -->
+		<hr/>
+		<h2>Features <small>and other cool stuff</small></h2>
+			<p class="lead">
+				Why to choose <code>omp4j</code> instead of some similar project? What does <code>omp4j</code> excels in?
+			</p>
+
+			<dl>
+				<dt>Portability</dt>
+				<dd><code>omp4j</code> runs on all commonly used JVMs. Try for example OracleJDK7/8 or OpenJDK6/7.</dd>
+
+				<dt>No runtime dependencies</dt>
+				<dd>Compile your code. Pack a JAR. Deploy everywhere. The preprocessed code does not require any installed library.</dd>
+
+				<dt>Java 8 support</dt>
+				<dd>Use lambdas and other cool Java 8 constructs as you will. No limitations.</dd>
+
+				<dt>High scalability</dt>
+				<dd>Independent tasks? Enjoy almost linear speedup up to 24 cores. Even more cores? Get significantly better speedup
+				than related projects or almost the same as the original OpenMP.</dd>
+
+				<dt>IDE support</dt>
+				<dd>You replace regular <code>javac</code> with <code>omp4j</code> in your IDE. <code>omp4j</code> accepts
+					the same options as <code>javac</code>, so the IDE even doesn't need to know!
+				</dd>
+
+				<dt>Library support</dt>
+				<dd>Employ <code>omp4j</code> as a library from your Java/Scala project. This webpage runs entirely on Scala
+					and support cod translation via the API.
+				</dd>
+
+			</dl>
+
+		<!-- ------------------------------------------------------------------------------------------------------- -->
+		<hr/>
+		<h2>Quick start <small>in 10 seconds</small></h2>
+		<p class="lead">
+			Interested in how simply <code>omp4j</code> may be used? Read through the 10 seconds examples.
+		</p>
+		<p>
+			Type a comment in front of a code block and let the preprocessor do the parallel invocation for you. Simple as that.
+		</p>
+			<pre>
+// omp parallel threadNum(4)
+{
+	System.out.print("hello ")
+}
+
+/* output */
+hello hello hello hello</pre>
+
+		<p>
+			Alternatively let the for-loop run in parallel. Can you think of a simpler solution?
+		</p>
+			<pre>
+// omp parallel for
+for (int i = 0; i < 10; i++) {
+	System.out.print(i)
+}
+
+/* output */
+2 0 6 7 1 9 5 3 4 8</pre>
+
+
+		<!-- ------------------------------------------------------------------------------------------------------- -->
+		<hr/>
+		<h2>Licence <small>and copyright</small></h2>
+		<p class="lead">
+			<code>omp4j</code> is open-source and for free. And it always will. Use it for commercial projects if you
+			will. No restrictions.
+		</p>
+		<p>
+			<code>omp4j</code> is released under benevolent
+			<a href="https://github.com/omp4j/omp4j/blob/master/LICENSE" target="_blank">BSD license</a> with all
+			sources hosted on <a href="https://github.com/omp4j/omp4j" target="_blank">GitHub</a> from whence you may
+			download all sources.
+		</p>
+		<p>
+			The whole project was developed as a bachelor thesis by Petr Bělohlávek (in 2015) who was led by his
+			patient supervisor Antonín Steinhauser.
+		</p>
+
+	</div>
+</div>
+
+<!-- =============================================================================================================== -->

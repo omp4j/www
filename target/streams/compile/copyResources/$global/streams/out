@@ -1,5 +1,5 @@
 [0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(/home/petr/Dropbox/omp4j/www/conf/application.conf,/home/petr/Dropbox/omp4j/www/target/scala-2.11/classes/application.conf)[0m
-[0m[[0mdebug[0m] [0m	(/home/petr/Dropbox/omp4j/www/conf/openshift.conf,/home/petr/Dropbox/omp4j/www/target/scala-2.11/classes/openshift.conf)[0m
-[0m[[0mdebug[0m] [0m	(/home/petr/Dropbox/omp4j/www/conf/play.plugins,/home/petr/Dropbox/omp4j/www/target/scala-2.11/classes/play.plugins)[0m
-[0m[[0mdebug[0m] [0m	(/home/petr/Dropbox/omp4j/www/conf/routes,/home/petr/Dropbox/omp4j/www/target/scala-2.11/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/tmp/www/conf/application.conf,/tmp/www/target/scala-2.11/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/tmp/www/conf/openshift.conf,/tmp/www/target/scala-2.11/classes/openshift.conf)[0m
+[0m[[0mdebug[0m] [0m	(/tmp/www/conf/play.plugins,/tmp/www/target/scala-2.11/classes/play.plugins)[0m
+[0m[[0mdebug[0m] [0m	(/tmp/www/conf/routes,/tmp/www/target/scala-2.11/classes/routes)[0m

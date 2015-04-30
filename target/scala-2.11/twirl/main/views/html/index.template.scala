@@ -48,10 +48,10 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 					<li><a href="home">Home <span class="glyphicon glyphicon-home"></a></li>
 					<li><a href="download">Download <span class="glyphicon glyphicon-cloud-download"></a></li>
 					<li><a href="tutorial">Tutorial <span class="glyphicon glyphicon-book"></a></li>
-					<li><a href="api">API doc <span class="glyphicon glyphicon-info-sign"></a></li>
 					<li><a href="authors">Authors <span class="glyphicon glyphicon-user"></a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
+					<li><a href="api">API doc <span class="glyphicon glyphicon-info-sign"></a></li>
 					<li><a href="https://github.com/omp4j/omp4j" target="_blank">Source <span class="glyphicon glyphicon-cloud"></a></li>
 					<li><a href="demo">Demo <span class="glyphicon glyphicon-cloud-upload"></span></a></li>
 				</ul>
@@ -63,12 +63,49 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 	<div role="main" class="container">
 		<div data-ng-view></div>
 	</div>
-	
-	<script src=""""),_display_(/*46.16*/routes/*46.22*/.Assets.at("third/jquery/jquery-1.10.2.min.js")),format.raw/*46.69*/("""" type="text/javascript"></script>
-	<script src=""""),_display_(/*47.16*/routes/*47.22*/.Assets.at("third/bootstrap/js/bootstrap.min.js")),format.raw/*47.71*/("""" type="text/javascript"></script>
-	<script src=""""),_display_(/*48.16*/routes/*48.22*/.Assets.at("third/angularjs/angular.min.js")),format.raw/*48.66*/("""" type="text/javascript"></script>
-	<script src=""""),_display_(/*49.16*/routes/*49.22*/.Assets.at("third/angularjs/angular-resource.min.js")),format.raw/*49.75*/("""" type="text/javascript"></script>
-	<script src=""""),_display_(/*50.16*/routes/*50.22*/.Assets.at("javascripts/main.js")),format.raw/*50.55*/("""" type="text/javascript"></script>
+
+	<hr/>
+	<footer class="footer">
+		<div class="container text-muted">
+			<div class="row">
+				<div class="col-md-4 text-left">
+					<h3>Contact</h3>
+					<hr/>
+					<ul class="list-unstyled">
+						<li><strong>Petr Bělohlávek</strong></li>
+						<li><a href="mailto:omp4j [at] petrbel.cz" target="_blank">omp4j [at] petrbel.cz</a> </li>
+						<li><a href="http://www.petrbel.cz" target="_blank">www.petrbel.cz</a></li>
+						<li><a href="https://github.com/omp4j/omp4j/issues" target="_blank">Issue tracker</a></li>
+
+					</ul>
+				</div>
+				<div class="col-md-4 text-center">
+					<h3>Copyright</h3>
+					<hr/>
+					&copy; Petr Bělohlávek, 2015
+				</div>
+				<div class="col-md-4 text-right">
+					<h3>Navigation</h3>
+					<hr/>
+					<ul class="list-unstyled">
+						<li><a href="home">Home <span class="glyphicon glyphicon-home"></a></li>
+						<li><a href="download">Download <span class="glyphicon glyphicon-cloud-download"></a></li>
+						<li><a href="tutorial">Tutorial <span class="glyphicon glyphicon-book"></a></li>
+						<li><a href="api">API doc <span class="glyphicon glyphicon-info-sign"></a></li>
+						<li><a href="authors">Authors <span class="glyphicon glyphicon-user"></a></li>
+						<li><a href="https://github.com/omp4j/omp4j" target="_blank">Source <span class="glyphicon glyphicon-cloud"></a></li>
+						<li><a href="demo">Demo <span class="glyphicon glyphicon-cloud-upload"></span></a></li>
+
+					</ul>
+				</div>
+		</div>
+	</footer>
+
+	<script src=""""),_display_(/*83.16*/routes/*83.22*/.Assets.at("third/jquery/jquery-1.10.2.min.js")),format.raw/*83.69*/("""" type="text/javascript"></script>
+	<script src=""""),_display_(/*84.16*/routes/*84.22*/.Assets.at("third/bootstrap/js/bootstrap.min.js")),format.raw/*84.71*/("""" type="text/javascript"></script>
+	<script src=""""),_display_(/*85.16*/routes/*85.22*/.Assets.at("third/angularjs/angular.min.js")),format.raw/*85.66*/("""" type="text/javascript"></script>
+	<script src=""""),_display_(/*86.16*/routes/*86.22*/.Assets.at("third/angularjs/angular-resource.min.js")),format.raw/*86.75*/("""" type="text/javascript"></script>
+	<script src=""""),_display_(/*87.16*/routes/*87.22*/.Assets.at("javascripts/main.js")),format.raw/*87.55*/("""" type="text/javascript"></script>
 </body>
 </html>
 """))}
@@ -83,11 +120,11 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 }
               /*
                   -- GENERATED --
-                  DATE: Wed Sep 03 15:42:14 CEST 2014
-                  SOURCE: /home/petr/Dropbox/omp4j/www/app/views/index.scala.html
-                  HASH: d4afddb72298ae4d8f434e57fb9bcb73d01734b9
-                  MATRIX: 580->0|775->169|789->175|861->226|936->275|950->281|1028->338|1103->387|1117->393|1171->427|1251->481|1265->487|1317->519|2781->1956|2796->1962|2864->2009|2941->2059|2956->2065|3026->2114|3103->2164|3118->2170|3183->2214|3260->2264|3275->2270|3349->2323|3426->2373|3441->2379|3495->2412
-                  LINES: 22->1|27->6|27->6|27->6|28->7|28->7|28->7|29->8|29->8|29->8|30->9|30->9|30->9|67->46|67->46|67->46|68->47|68->47|68->47|69->48|69->48|69->48|70->49|70->49|70->49|71->50|71->50|71->50
+                  DATE: Thu Apr 30 08:59:04 CEST 2015
+                  SOURCE: /tmp/www/app/views/index.scala.html
+                  HASH: ec736381fe77a9325a8b3ee352ae243a5c918543
+                  MATRIX: 580->0|775->169|789->175|861->226|936->275|950->281|1028->338|1103->387|1117->393|1171->427|1251->481|1265->487|1317->519|4240->3415|4255->3421|4323->3468|4400->3518|4415->3524|4485->3573|4562->3623|4577->3629|4642->3673|4719->3723|4734->3729|4808->3782|4885->3832|4900->3838|4954->3871
+                  LINES: 22->1|27->6|27->6|27->6|28->7|28->7|28->7|29->8|29->8|29->8|30->9|30->9|30->9|104->83|104->83|104->83|105->84|105->84|105->84|106->85|106->85|106->85|107->86|107->86|107->86|108->87|108->87|108->87
                   -- GENERATED --
               */
           

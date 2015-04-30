@@ -1,6 +1,6 @@
 logs
 project/project
-project/target
+project/target/
 #target #commented for deploying to openshift
 tmp
 .history

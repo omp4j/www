@@ -3,18 +3,440 @@
 		<div class="page-header">
 			<h1>Tutorial <small>learn everything</small></h1>
 		</div>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean posuere elit vel pellentesque sollicitudin. Nulla rhoncus, justo a ultricies iaculis, leo arcu faucibus neque, et lacinia est lorem eu quam. Pellentesque vulputate laoreet erat <code>$ git clone ...</code>. Praesent ante tellus, viverra sed velit in, elementum lobortis arcu. Sed dignissim mauris orci, non pretium diam tincidunt ac. Sed sollicitudin condimentum ante ut tincidunt. Ut nec neque sit amet sem vulputate vehicula. Phasellus dictum tellus quis venenatis mattis.
+
+		<p class="lead">
+			<code>omp4j</code> is source-level preprocessor. It means it takes a Java source code and returns Java
+			source code as well. The statements that should run in parallel are marked with special comment.
 		</p>
 
-		<h2>Installation</h2>
+		<!-- ------------------------------------------------------------------------------------------------------- -->
+		<hr/>
+		<h2>Options</h2>
+		<p class="lead">
+			All <code>javac</code> CLI options are supported. Additionally some others are provided.
+		</p>
+		<table class="table">
+			<tr>
+				<th>Short option</th>
+				<th>Long option</th>
+				<th>Behavior</th>
+			</tr>
+			<tr>
+				<td><code>-d &lt;dir&gt;</code></td>
+				<td><code>--destdir &lt;dir&gt;</code></td>
+				<td>Directory where preprocessed/compiled classes are stored.</td>
+			</tr>
+			<tr>
+				<td><code>-h</code></td>
+				<td><code>--help</code></td>
+				<td>Print help</td>
+			</tr>
+			<tr>
+				<td><code>-n</code></td>
+				<td><code>--no-compile</code></td>
+				<td>Do not compile preprocessed sources. Store only <code>.java</code> files.</td>
+			</tr>
+			<tr>
+				<td><code>-v</code></td>
+				<td><code>--verbose</code></td>
+				<td>Provide progress information</td>
+			</tr>
+		</table>
+
 		<p>
-			Vivamus augue urna, tristique ac est eu, aliquam pulvinar ligula. Vivamus convallis erat enim, nec pellentesque turpis dictum sed. Donec faucibus, nibh ac vehicula rhoncus, augue ipsum aliquet dolor, eu facilisis felis magna in ex. Nunc lorem ligula, dictum eu semper nec, tempor eget nunc. Aliquam tincidunt laoreet dui, vehicula rutrum tellus. Pellentesque pharetra nulla ac justo pretium mollis. Integer tincidunt est rutrum blandit finibus. In odio ipsum, semper non interdum id, semper eu lorem. Curabitur consectetur ex sed nisl consectetur pellentesque. Fusce porttitor ligula id magna dignissim, et ullamcorper dui ullamcorper. Mauris at dignissim est, a lobortis eros. Curabitur eu pulvinar mi, id efficitur augue. Sed eget egestas massa. Aliquam a massa a ante eleifend rhoncus eget et justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ac iaculis sapien.
+			The common use of the options are as follows:
 		</p>
 
-		<h2>Usage</h2>
-		<p>
-			Proin ornare malesuada leo a accumsan. Vestibulum tincidunt et arcu eu viverra. Vestibulum ac sapien sed diam efficitur auctor a sed tellus. Mauris varius ex purus, eu hendrerit enim blandit ac. Pellentesque aliquam auctor neque ut pharetra <code>$ omp4j -d ~/myPath *</code>. Pellentesque id fermentum massa. Nulla non dolor neque. Suspendisse lobortis mi et ultrices convallis. Duis massa massa, interdum vitae odio quis, auctor laoreet dolor. Integer non erat a diam ornare ultricies et ut diam. Aenean tincidunt massa nec nunc laoreet egestas. Ut tristique massa purus, in scelerisque ante blandit et. Fusce id iaculis nisl. In ullamcorper ante sed faucibus luctus. Aliquam dictum leo placerat lorem varius, non bibendum diam facilisis. Ut a fringilla nibh.
+		<dl>
+			<dt>Instead of <code>javac</code></dt>
+			<dd><code>$ omp4j -d classes -v MyClass1.java MyClass2.java</code></dd>
+
+			<dt>Preprocess only</dt>
+			<dd><code>$ omp4j -d sources --verbose --no-compile MyClass1.java MyClass2.java</code></dd>
+		</dl>
+
+
+		<!-- ------------------------------------------------------------------------------------------------------- -->
+		<hr/>
+		<h2>Directives</h2>
+		<p class="lead">
+			<code>omp4j</code> supports the majority of OpenMP directives.
 		</p>
+
+		<table class="table">
+			<tr>
+				<th>Directive</th>
+				<th>Usage</th>
+				<th>Behavior</th>
+			</tr>
+			<tr>
+				<td><code>// omp parallel</code></td>
+				<td>Before <code>{...}</code> statement</td>
+				<td>The statement will be invoked in parallel (as many threads as possible).</td>
+			</tr>
+			<tr>
+				<td><code>// omp parallel for</code></td>
+				<td>Before for-loop</td>
+				<td>The for-loop will be iterated in parallel.</td>
+			</tr>
+			<tr>
+				<td><code>// omp sections</code></td>
+				<td>Before <code>{...}</code> statement</td>
+				<td>Wrapper for <code>// omp section</code>s directives. It may not contain any other code or directives.</td>
+			</tr>
+			<tr>
+				<td><code>// omp section</code></td>
+				<td>Before <code>{...}</code> statement</td>
+				<td>The statement will be invoked together with other sections in parallel.</td>
+			</tr>
+			<tr>
+				<td><code>// omp critical</code></td>
+				<td>Before <code>{...}</code> statement</td>
+				<td>At most one thread will access the statement at any particular time.</td>
+			</tr>
+			<tr>
+				<td><code>// omp atomic</code></td>
+				<td>Before <code>{...}</code> statement</td>
+				<td><strong>Deprecated</strong> atomic operation. Internally translated into critical.</td>
+			</tr>
+			<tr>
+				<td><code>// omp barrier</code></td>
+				<td>Before empty <code>{}</code> statement</td>
+				<td>All threads stop here until the for the last one.</td>
+			</tr>
+			<tr>
+				<td><code>// omp master</code></td>
+				<td>Before <code>{...}</code> statement</td>
+				<td>Only master thread will execute the statement.</td>
+			</tr>
+			<tr>
+				<td><code>// omp single</code></td>
+				<td>Before <code>{...}</code> statement</td>
+				<td>Only one thread will execute the statement, no matter which one.</td>
+			</tr>
+		</table>
+
+
+		<!-- ------------------------------------------------------------------------------------------------------- -->
+		<hr/>
+		<h2>Attributes</h2>
+		<p class="lead">
+			Directives may be modified by attributes. It's easy and intuitive!
+		</p>
+
+		<table class="table">
+			<tr>
+				<th>Attribute</th>
+				<th>Behavior</th>
+			</tr>
+			<tr>
+				<td><code>threadNum(N)</code></td>
+				<td>The directive will be invoked with <code>N</code> threads. Default value is set to number of CPUs.</td>
+			</tr>
+			<tr>
+				<td><code>schedule(dynamic|static)</code></td>
+				<td>The directive will use dynamic or static executor. Default value is set to dynamic.</td>
+			</tr>
+			<tr>
+				<td><code>public(a,b)</code></td>
+				<td>Variables <code>a</code> and <code>b</code> are shared among all threads.</td>
+			</tr>
+			<tr>
+				<td><code>private(a,b)</code></td>
+				<td>Variables <code>a</code> and <code>b</code> are created (via parameter-less constructor) for each thread separately.</td>
+			</tr>
+			<tr>
+				<td><code>firstprivate(a,b)</code></td>
+				<td>Variables <code>a</code> and <code>b</code> are created (via copy-constructor) for each thread separately.</td>
+			</tr>
+
+		</table>
+
+		<!-- ------------------------------------------------------------------------------------------------------- -->
+		<hr/>
+		<h2>Thread-ID macros</h2>
+		<p class="lead">
+			Thread-ID macros are a simple way of obtaining information about the parallel context.
+		</p>
+
+		<table class="table">
+			<tr>
+				<th>Macro</th>
+				<th>Meaning</th>
+			</tr>
+			<tr>
+				<td><code>OMP_THREAD_NUM</code></td>
+				<td>Integer representing current thread ID</td>
+			</tr>
+			<tr>
+				<td><code>OMP_NUM_THREADS</code></td>
+				<td>Integer representing current number of threads</td>
+			</tr>
+		</table>
+
+
+		<!-- ------------------------------------------------------------------------------------------------------- -->
+		<hr/>
+		<h2>Examples</h2>
+		<p class="lead">
+			The most straightforward way of learning new techniques is via examples. Walk through them and try them out
+			in the <a href="/demo">online demo</a>.
+		</p>
+
+<!-- *************************************************************************************************************** -->
+
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingOne">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							Simple parallel invocation
+						</a>
+					</h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+					<div class="panel-body">
+						<pre>
+public class Example1 {
+	public static void main(String[] args) {
+
+		int foo = 5;
+		// omp parallel
+		{
+			System.out.println("hello");
+			System.out.println("world");
+			System.out.println(foo);
+		}
+
+		System.out.println("last line");
+	}
+}
+						</pre>
+					</div>
+				</div>
+			</div>
+
+<!-- *************************************************************************************************************** -->
+
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingTwo">
+					<h4 class="panel-title">
+						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							For-loop in parallel
+						</a>
+					</h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+					<div class="panel-body">
+						<pre>
+public class Example2 {
+	public static void main(String[] args) {
+
+		// omp parallel for
+		for (int i = 0; i < 50; i += 2) {
+			System.out.print(" " + i);
+		}
+	}
+}
+						</pre>
+					</div>
+				</div>
+			</div>
+
+			<!-- *************************************************************************************************** -->
+
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingThree">
+					<h4 class="panel-title">
+						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							Sections example
+						</a>
+					</h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+					<div class="panel-body">
+						<pre>
+public class Example3 {
+	public static void main(String[] args) {
+		// omp sections
+		{
+			// omp section
+			{
+				System.out.println("task1 start");
+				System.out.println("task1 stop");
+			}
+
+			// omp section
+			{
+				System.out.println("task2 start");
+				System.out.println("task2 stop");
+			}
+
+			// omp section
+			{
+				System.out.println("task3 start");
+				System.out.println("task3 stop");
+			}
+		}
+	}
+}
+						</pre>
+					</div>
+				</div>
+			</div>
+
+			<!-- *************************************************************************************************** -->
+
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingFour">
+					<h4 class="panel-title">
+						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+							Critical section
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+					<div class="panel-body">
+						<pre>
+public class Example4 {
+	public static void main(String[] args) {
+		// omp parallel
+		{
+			// omp critical
+			{
+				System.out.println("These lines");
+				System.out.println("are always printed");
+				System.out.println("in same order.");
+			}
+		}
+	}
+}
+						</pre>
+					</div>
+				</div>
+			</div>
+
+			<!-- *************************************************************************************************** -->
+
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingFive">
+					<h4 class="panel-title">
+						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+							Barrier example
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+					<div class="panel-body">
+						<pre>
+public class Example5 {
+	public static void main(String[] args) {
+		// omp parallel
+		{
+			System.out.println("pre");
+
+			// omp barrier
+			{}
+
+			System.out.println("post");
+		}
+	}
+}
+						</pre>
+					</div>
+				</div>
+			</div>
+
+			<!-- *************************************************************************************************** -->
+
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingSix">
+					<h4 class="panel-title">
+						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+							Single/master example
+						</a>
+					</h4>
+				</div>
+				<div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+					<div class="panel-body">
+						<pre>
+public class Example16 {
+	public static void main(String[] args) {
+		// omp parallel
+		{
+			System.out.println("By all 1");
+
+			// omp single
+			{
+				System.out.println("only once");
+			}
+
+			System.out.println("By all 2");
+		}
+	}
+}
+						</pre>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- *************************************************************************************************** -->
+
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingSeven">
+					<h4 class="panel-title">
+						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseThree">
+							Thread number limitation
+						</a>
+					</h4>
+				</div>
+				<div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+					<div class="panel-body">
+						<pre>
+public class Example7 {
+	/** Let's assume that we have e.g. 8 core computer and need to run parallel section only twice */
+	public static void main(String[] args) {
+
+		// omp parallel threadNum(2)
+		{
+			System.out.println("This is printed only twice.");
+		}
+	}
+}
+						</pre>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- *************************************************************************************************** -->
+
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingEight">
+					<h4 class="panel-title">
+						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseThree">
+							Thread-ID macros example
+						</a>
+					</h4>
+				</div>
+				<div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+					<div class="panel-body">
+						<pre>
+public class Example8 {
+	public static void main(String[] args) {
+		// omp parallel
+		{
+			System.out.println("Thread #" + OMP_THREAD_NUM + "/" + OMP_NUM_THREADS);
+		}
+	}
+}
+						</pre>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
 	</div>
 </div>
