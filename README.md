@@ -1,7 +1,7 @@
-omp4j WWW presentation
+omp4j web and demo
 ======================
 
-This is the main repository of https://www-omp4j.rhcloud.com. Due to RedHat OpenShift PaaS hosting, this repository contains also binaries.
+This is the main repository of https://omp4j.herokuapp.com. We employ free plan at Heroku.
 
 Used technologies
 -----------------
@@ -10,4 +10,4 @@ Used technologies
 - Scala
 - AngularJS
 - Twitter Bootstrap (v3)
-- RedHat OpenShift PaaS
+- Heroku
