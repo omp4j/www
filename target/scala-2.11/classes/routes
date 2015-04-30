@@ -1,9 +1,0 @@
-# Home page
-GET     /                           controllers.Application.index(any = "none")
-POST    /demo/translate             controllers.Demo.translate
-GET     /views/*any                 controllers.Application.loadPublicHTML(any: String)
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
-GET     /public/*file               controllers.Assets.at(path="/public", file)
-
-# Redirect all unknown routes to the index page
-GET     /*any                       controllers.Application.index(any)

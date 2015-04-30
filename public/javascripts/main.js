@@ -27,7 +27,7 @@ var app = angular.module("app", ["ngResource"])
 	}
 	]).config([
 	"$locationProvider", function($locationProvider) {
-		return $locationProvider.html5Mode(true).hashPrefix("!"); // enable the new HTML5 routing and histoty API
+		return $locationProvider.html5Mode(true).hashPrefix("!"); // enable the new HTML5 routing and history API
 	}
 ]);
 
