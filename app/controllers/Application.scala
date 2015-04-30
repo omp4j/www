@@ -13,22 +13,11 @@ object Application extends Controller {
 	def index(any: String) = Action { Ok(views.html.index()) }
 
 	/** resolve "any" into the corresponding HTML page URI */
-	def getURI(any: String, host: String=""): String = s"$host/public/html/$any.html"
+	def getURL(any: String, host: String=""): URL = new URL(s"http://$host/public/html/$any.html")
 
 	/** load an HTML page from public/html */
 	def loadPublicHTML(any: String) = Action { implicit request =>
-		//val projectRoot = Play.application.path()
-		//var file = new File(projectRoot + getURI(any))
-		//var file = new File(getURI(any, request.host))
-
-
-		val url = new URL("http://" + getURI(any, request.host))
-		println(url)
-
-		//if (file.exists())
-			//Ok(scala.io.Source.fromFile(file.getCanonicalPath(), "UTF-8").mkString).as("text/html");
-			Ok(scala.io.Source.fromURL(url).mkString).as("text/html");
-		//else
-		//	NotFound
+		val url = getURL(any, request.host)
+		Ok(scala.io.Source.fromURL(url).mkString).as("text/html");
 	}
 }
