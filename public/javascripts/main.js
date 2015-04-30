@@ -1,25 +1,25 @@
 var app = angular.module("app", ["ngResource"])
 	.config(["$routeProvider", function($routeProvider) {
 		return $routeProvider.when("/", {
-			templateUrl: "views/home",
+			templateUrl: "/views/home",
 			controller: "TextCtrl"
 		}).when("/home", {
-			templateUrl: "views/home",
+			templateUrl: "/views/home",
 			controller: "TextCtrl"
 		}).when("/download", {
-			templateUrl: "views/download",
+			templateUrl: "/views/download",
 			controller: "TextCtrl"
 		}).when("/tutorial", {
-			templateUrl: "views/tutorial",
+			templateUrl: "/views/tutorial",
 			controller: "TextCtrl"
 		}).when("/api", {
-			templateUrl: "views/api",
+			templateUrl: "/views/api",
 			controller: "TextCtrl"
 		}).when("/authors", {
-			templateUrl: "views/authors",
+			templateUrl: "/views/authors",
 			controller: "TextCtrl"
 		}).when("/demo", {
-			templateUrl: "views/demo",
+			templateUrl: "/views/demo",
 			controller: "DemoCtrl"
 		}).otherwise({
 			redirectTo: "/"
