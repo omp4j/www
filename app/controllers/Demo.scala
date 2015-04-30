@@ -19,9 +19,9 @@ object Demo extends Controller {
 		val f_in = File.createTempFile("pre", ".java")
 		var f_out: File = null
 		var tmpDir2delete: File = null
+		var conf: Config = null
 
 		val writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f_in)))
-
 
 		try {
 			val source: play.api.libs.json.JsValue = request.body.\("source")
@@ -30,7 +30,7 @@ object Demo extends Controller {
 			writer.write(StringContext treatEscapes code.substring(1, code.length-1))
 			writer.flush()
 
-			val conf = new Config(Array("-d", System.getProperty("java.io.tmpdir"), "--source-only", f_in.getAbsolutePath))     // set up configuration based on program arguments
+			conf = new Config(Array("-d", System.getProperty("java.io.tmpdir"), "--source-only", f_in.getAbsolutePath))     // set up configuration based on program arguments
 			val prep = new Preprocessor()(conf)     // create preprocessor
 
 			val (outfiles, (tmpDir, prepDir)::_) = prep.run()        // fetch the array of (already saved) preprocessed files
@@ -44,10 +44,18 @@ object Demo extends Controller {
 			case e: Exception => Ok(e.getMessage)
 		} finally {
 			writer.close()
-			f_in.delete()
-			f_out.delete()
-			FileTreeWalker.recursiveDelete(tmpDir2delete)
 
+			try f_in.delete()
+			catch {case e: NullPointerException => ; }
+
+			try f_out.delete()
+			catch {case e: NullPointerException => ; }
+
+			try FileTreeWalker.recursiveDelete(tmpDir2delete)
+			catch {case e: NullPointerException => ; }
+
+			try FileTreeWalker.recursiveDelete(conf.workDir)
+			catch {case e: NullPointerException => ; }
 		}
 	}
 }
