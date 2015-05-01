@@ -6,6 +6,9 @@ var app = angular.module("app", ["ngResource"])
 		}).when("/home", {
 			templateUrl: "/views/home",
 			controller: "TextCtrl"
+		}).when("/features", {
+			templateUrl: "/views/features",
+			controller: "TextCtrl"
 		}).when("/download", {
 			templateUrl: "/views/download",
 			controller: "TextCtrl"

@@ -10,10 +10,10 @@
 				and fun. Discover an enjoyable way of developing portable and highly scalable concurrent applications in Java.
 			</p>
 			<p>
-				Simply write a proper comment before the for-loop of a statement. Nothing more!
+				Simply write a proper comment before a for-loop or a statement. That's it!
 			</p>
-			<p>
-				<a class="btn btn-lg btn-primary" href="/tutorial" role="button">Discover more &raquo;</a>
+			<p class="text-center" style="margin-top: 30px;">
+				<a class="btn btn-lg btn-primary" href="/features" role="button">Learn more &raquo;</a>
 			</p>
 		</div>
 
@@ -23,77 +23,46 @@
 <!-- =============================================================================================================== -->
 
 <div class="row text-center">
-	<hr/>
 	<div class="col-md-4">
-		<h3><a href="/download">Download omp4j!</a></h3>
+		<h3><a href="/download">Download omp4j! &raquo;</a></h3>
 		<p>
-			Download, install develop. Simple setup in 3 steps!
+			Download - install - develop. Set up <code>omp4j</code> in three simple steps!
 		</p>
 	</div>
 
 	<div class="col-md-4">
-		<h3><a href="/tutorial">Get started!</a></h3>
+		<h3><a href="/tutorial">Get started! &raquo;</a></h3>
 		<p>
-			Dive in the directives. Plenty of examples and tips.
+			Dive into the world of directives. Walk through a plenty of examples and use-cases.
 		</p>
 	</div>
 
 	<div class="col-md-4">
-		<h3><a href="/demo">Try demo online!</a></h3>
+		<h3><a href="/demo">Try demo online! &raquo;</a></h3>
 		<p>
-			Try preprocessing online! For free and without installation.
+			Try <code>omp4j</code> online! No installation required. Just use web form and get your parallel code now!
 		</p>
 	</div>
 </div>
-
-<!-- =============================================================================================================== -->
 
 <div class="row">
 	<div class="col-md-12">
 
 		<!-- ------------------------------------------------------------------------------------------------------- -->
 		<hr/>
-		<h2>Features <small>and other cool stuff</small></h2>
-			<p class="lead">
-				Why to choose <code>omp4j</code> instead of some similar project? What does <code>omp4j</code> excels in?
-			</p>
-
-			<dl>
-				<dt>Portability</dt>
-				<dd><code>omp4j</code> runs on all commonly used JVMs. Try for example OracleJDK7/8 or OpenJDK6/7.</dd>
-
-				<dt>No runtime dependencies</dt>
-				<dd>Compile your code. Pack a JAR. Deploy everywhere. The preprocessed code does not require any installed library.</dd>
-
-				<dt>Java 8 support</dt>
-				<dd>Use lambdas and other cool Java 8 constructs as you will. No limitations.</dd>
-
-				<dt>High scalability</dt>
-				<dd>Independent tasks? Enjoy almost linear speedup up to 24 cores. Even more cores? Get significantly better speedup
-				than related projects or almost the same as the original OpenMP.</dd>
-
-				<dt>IDE support</dt>
-				<dd>You replace regular <code>javac</code> with <code>omp4j</code> in your IDE. <code>omp4j</code> accepts
-					the same options as <code>javac</code>, so the IDE even doesn't need to know!
-				</dd>
-
-				<dt>Library support</dt>
-				<dd>Employ <code>omp4j</code> as a library from your Java/Scala project. This webpage runs entirely on Scala
-					and support cod translation via the API.
-				</dd>
-
-			</dl>
-
-		<!-- ------------------------------------------------------------------------------------------------------- -->
-		<hr/>
-		<h2>Quick start <small>in 10 seconds</small></h2>
+		<h2>Example usage <small>in 10 seconds</small></h2>
 		<p class="lead">
-			Interested in how simply <code>omp4j</code> may be used? Read through the 10 seconds examples.
+			Let us show you how simple may the Java parallel code become using <code>omp4j</code>. It won't take more than
+			10 seconds and it's definitely worth it, we promise. Just take a look at the following two examples:
 		</p>
+
+		<h3>Example #1 <small>parallel invocation</small></h3>
 		<p>
-			Type a comment in front of a code block and let the preprocessor do the parallel invocation for you. Simple as that.
+			Simply type a comment in front of a code block and let the preprocessor do the parallel invocation for you.
+			Easy, isn't it? As you may see, the source code remains serial. That's what makes <code>omp4j</code>
+			so powerful. Develop serial code - run it in parallel. Awesome!
 		</p>
-			<pre>
+		<pre>
 // omp parallel threadNum(4)
 {
 	System.out.print("hello ")
@@ -102,10 +71,13 @@
 /* output */
 hello hello hello hello</pre>
 
+		<h3>Example #2 <small>for-loop in parallel</small></h3>
 		<p>
-			Alternatively let the for-loop run in parallel. Can you think of a simpler solution?
+			Well, invoking a block of code in parallel doesn't seem to be that useful, does it? What about for-loop
+			parallel execution? Yes, it is that simple! Let the for-loop run in parallel only with a simple comment
+			before the loop itself. Can you think of a simpler solution? We don't think so :)
 		</p>
-			<pre>
+		<pre>
 // omp parallel for
 for (int i = 0; i < 10; i++) {
 	System.out.print(i)
@@ -114,26 +86,16 @@ for (int i = 0; i < 10; i++) {
 /* output */
 2 0 6 7 1 9 5 3 4 8</pre>
 
-
-		<!-- ------------------------------------------------------------------------------------------------------- -->
-		<hr/>
-		<h2>Licence <small>and copyright</small></h2>
-		<p class="lead">
-			<code>omp4j</code> is open-source and for free. And it always will. Use it for commercial projects if you
-			will. No restrictions.
+		<h3>Further Examples <small>- we know you're hungry for more</small></h3>
+		<p>
+			Firstly, walk through our short <a href="/tutorial">tutorial</a>. You will learn how to run the preprocessor
+			and everything about the directives (smart comments). And of course, the promised example are also provided.
+		<p>
+			Secondly, try <code>omp4j</code> online by using our <a href="/demo">demo</a>. You can either copy-paste
+			the examples or modify them as you like.
 		</p>
 		<p>
-			<code>omp4j</code> is released under benevolent
-			<a href="https://github.com/omp4j/omp4j/blob/master/LICENSE" target="_blank">BSD license</a> with all
-			sources hosted on <a href="https://github.com/omp4j/omp4j" target="_blank">GitHub</a> from whence you may
-			download all sources.
+			Finally, <a href="/download">download</a> the preprocessor if you like and use it as you will. For free.
 		</p>
-		<p>
-			The whole project was developed as a bachelor thesis by Petr Bělohlávek (in 2015) who was led by his
-			patient supervisor Antonín Steinhauser.
-		</p>
-
 	</div>
 </div>
-
-<!-- =============================================================================================================== -->

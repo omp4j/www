@@ -1,3 +1,6 @@
 [submodule "omp4j"]
 	path = omp4j
 	url = https://github.com/omp4j/omp4j.git
+[submodule "public/api"]
+	path = public/api
+	url = https://github.com/omp4j/doc.git

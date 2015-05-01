@@ -1,9 +1,100 @@
-#homepage-carousel .carousel-caption {
-	background: black !important;
+/*****************************************************************************/
+/* Global flow */
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
 
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
-	filter: alpha(opacity=70);
-	-moz-opacity:0.7;
-	-khtml-opacity: 0.7;
-	opacity: 0.7;
+#page {
+	min-height: 100%;
+	padding-bottom: 220px;
+}
+
+#main {
+	overflow: auto;
+}
+
+/*****************************************************************************/
+/* Global styles */
+p {
+	text-align: justify;
+}
+
+/*****************************************************************************/
+/* Footer styles */
+footer {
+	background: #f5f5f5;
+	min-height: 210px;
+	clear: both;
+	margin-top: -210px;
+	position: relative;
+	width: 100%;
+}
+
+footer table {
+	width: 100%;
+}
+
+/*****************************************************************************/
+/* Text alignment */
+.text-justify-xs {
+	text-align: justify;
+}
+.text-left-xs {
+	text-align: left;
+}
+.text-right-xs {
+	text-align: right;
+}
+.text-center-xs {
+	text-align: center;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.text-justify-sm {
+		text-align: justify;
+	}
+	.text-left-sm {
+		text-align: left;
+	}
+	.text-right-sm {
+		text-align: right;
+	}
+	.text-center-sm {
+		text-align: center;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.text-justify-md {
+		text-align: justify;
+	}
+	.text-left-md {
+		text-align: left;
+	}
+	.text-right-md {
+		text-align: right;
+	}
+	.text-center-md {
+		text-align: center;
+	}
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	.text-justify-lg {
+		text-align: justify;
+	}
+	.text-left-lg {
+		text-align: left;
+	}
+	.text-right-lg {
+		text-align: right;
+	}
+	.text-center-lg {
+		text-align: center;
+	}
 }

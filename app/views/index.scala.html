@@ -1,82 +1,99 @@
 <!DOCTYPE html>
 <html data-ng-app="app" data-ng-controller="AppCtrl">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Official omp4j webpage containing tutorials, examples and online demo." />
+	<meta name="author" content="Petr Bělohlávek" />
+
 	<title>omp4j</title>
-	<link rel="stylesheet" media="screen" href="@routes.Assets.at("third/bootstrap/css/bootstrap.min.css")">
-	<link rel="stylesheet" media="screen" href="@routes.Assets.at("third/bootstrap/css/bootstrap-theme.min.css")">
-	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-	<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("third/bootstrap/css/bootstrap.min.css")" />
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("third/bootstrap/css/bootstrap-theme.min.css")" />
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")" />
+	<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")" />
 </head>
 <body>
 
-	<!-- menu -->
-	<div class="navbar navbar-default navbar-static-top" role="navigation">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">omp4j</a>
+	<div id="page">
+		<!-- menu -->
+		<div class="navbar navbar-default navbar-static-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">omp4j</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="/home">Home <span class="glyphicon glyphicon-home"></span></a></li>
+						<li><a href="/features">Features <span class="glyphicon glyphicon-thumbs-up"></span></a></li>
+						<li><a href="/download">Download <span class="glyphicon glyphicon-cloud-download"></span></a></li>
+						<li><a href="/tutorial">Tutorial <span class="glyphicon glyphicon-book"></span></a></li>
+						<li><a href="/authors">Authors <span class="glyphicon glyphicon-user"></span></a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/public/api/index.html" target="_blank">API doc <span class="glyphicon glyphicon-info-sign"></span></a></li>
+						<li><a href="https://github.com/omp4j/omp4j" target="_blank">Source <span class="glyphicon glyphicon-cloud"></span></a></li>
+						<li><a href="/demo">Demo <span class="glyphicon glyphicon-cloud-upload"></span></a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
 			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="home">Home <span class="glyphicon glyphicon-home"></a></li>
-					<li><a href="download">Download <span class="glyphicon glyphicon-cloud-download"></a></li>
-					<li><a href="tutorial">Tutorial <span class="glyphicon glyphicon-book"></a></li>
-					<li><a href="authors">Authors <span class="glyphicon glyphicon-user"></a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="api">API doc <span class="glyphicon glyphicon-info-sign"></a></li>
-					<li><a href="https://github.com/omp4j/omp4j" target="_blank">Source <span class="glyphicon glyphicon-cloud"></a></li>
-					<li><a href="demo">Demo <span class="glyphicon glyphicon-cloud-upload"></span></a></li>
-				</ul>
-			</div><!--/.nav-collapse -->
 		</div>
-	</div>
-	<!-- /menu -->
+		<!-- /menu -->
 
-	<div role="main" class="container">
-		<div data-ng-view></div>
+			<div role="main" class="container" id="main">
+				<div data-ng-view></div>
+			</div>
 	</div>
 
-	<hr/>
 	<footer class="footer">
 		<div class="container text-muted">
 			<div class="row">
-				<div class="col-md-4 text-left">
+				<div class="col-md-4 text-center-xs text-left-lg">
 					<h3>Contact</h3>
 					<hr/>
 					<ul class="list-unstyled">
 						<li><strong>Petr Bělohlávek</strong></li>
-						<li><a href="mailto:omp4j [at] petrbel.cz" target="_blank">omp4j [at] petrbel.cz</a> </li>
+						<li><a href="mailto:omp4j%20at%20petrbel.cz" target="_blank">omp4j [at] petrbel.cz</a> </li>
 						<li><a href="http://www.petrbel.cz" target="_blank">www.petrbel.cz</a></li>
 						<li><a href="https://github.com/omp4j/omp4j/issues" target="_blank">Issue tracker</a></li>
 
 					</ul>
 				</div>
-				<div class="col-md-4 text-center">
+				<div class="col-md-4 text-center-xs">
 					<h3>Copyright</h3>
 					<hr/>
 					&copy; Petr Bělohlávek, 2015
 				</div>
-				<div class="col-md-4 text-right">
+				<div class="col-md-4 text-center-xs text-right-lg">
 					<h3>Navigation</h3>
 					<hr/>
-					<ul class="list-unstyled">
-						<li><a href="home">Home <span class="glyphicon glyphicon-home"></a></li>
-						<li><a href="download">Download <span class="glyphicon glyphicon-cloud-download"></a></li>
-						<li><a href="tutorial">Tutorial <span class="glyphicon glyphicon-book"></a></li>
-						<li><a href="api">API doc <span class="glyphicon glyphicon-info-sign"></a></li>
-						<li><a href="authors">Authors <span class="glyphicon glyphicon-user"></a></li>
-						<li><a href="https://github.com/omp4j/omp4j" target="_blank">Source <span class="glyphicon glyphicon-cloud"></a></li>
-						<li><a href="demo">Demo <span class="glyphicon glyphicon-cloud-upload"></span></a></li>
-
-					</ul>
+					<table>
+						<tr>
+							<td><a href="/home">Home <span class="glyphicon glyphicon-home"></span></a></td>
+							<td><a href="/features">Features <span class="glyphicon glyphicon-thumbs-up"></span></a></td>
+						</tr>
+						<tr>
+							<td><a href="/download">Download <span class="glyphicon glyphicon-cloud-download"></span></a></td>
+							<td><a href="/tutorial">Tutorial <span class="glyphicon glyphicon-book"></span></a></td>
+						</tr>
+						<tr>
+							<td><a href="/authors">Authors <span class="glyphicon glyphicon-user"></span></a></td>
+							<td><a href="/public/api/index.html" target="_blank">API doc <span class="glyphicon glyphicon-info-sign"></span></a></td>
+						</tr>
+						<tr>
+							<td><a href="https://github.com/omp4j/omp4j" target="_blank">Source <span class="glyphicon glyphicon-cloud"></span></a></td>
+							<td><a href="demo">Demo <span class="glyphicon glyphicon-cloud-upload"></span></a></td>
+						</tr>
+					</table>
 				</div>
+			</div>
 		</div>
 	</footer>
 
