@@ -13,9 +13,15 @@
         <hr/>
         <h2>Portability <small>run everywhere</small></h2>
         <p>
-            <code>omp4j</code> runs on all commonly used JVMs. Try for example OracleJDK7/8 or OpenJDK6/7. We developed
-            the preprocessor in order to run everywhere.
+            <code>omp4j</code> runs on all commonly used JVMs. We developed the preprocessor in order to run everywhere.
+            Try any of the following JDKS which have been tested. Does <code>omp4j</code> run on some other? Let us know!
         </p>
+        <ul>
+            <li>Oracle JDK 8</li>
+            <li>Oracle JDK 7</li>
+            <li>OpenJDK 7</li>
+            <li>OpenJDK 6</li>
+        </ul>
 
         <!-- ------------------------------------------------------------------------------------------------------- -->
         <hr/>
@@ -34,13 +40,31 @@
         </p>
 
         <!-- ------------------------------------------------------------------------------------------------------- -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-7">
         <hr/>
         <h2>High scalability <small>as much as possible</small></h2>
+
         <p>
             Do you have independent tasks? Enjoy almost linear speedup up to 24 cores. Do you have even more cores machine?
             Great! Get significantly better speedup than related projects (e.g. JOMP) or almost the same as the original
             C++ OpenMP. Your only enemy remains Amdahl's law.
         </p>
+
+        <p>
+            The following chart suggests <code>omp4j</code> in comparison with <code>JOMP</code>.
+        </p>
+    </div>
+    <div class="col-md-5">
+        <img src="/public/images/jomp.png" class="img-responsive" alt="JOMP comparison" title="JOMP comparison" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
 
         <!-- ------------------------------------------------------------------------------------------------------- -->
         <hr/>
