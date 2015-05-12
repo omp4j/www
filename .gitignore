@@ -7,3 +7,4 @@ project/sbt-ui.sbt
 tmp
 .history
 dist
+*.iml
