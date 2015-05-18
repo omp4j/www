@@ -18,7 +18,7 @@ object Demo extends Controller {
 	def translate = Action(parse.json) { implicit request =>
 		val f_in = File.createTempFile("pre", ".java")
 		var f_out: File = null
-		var tmpDir2delete: File = null
+		var toDelete: List[File] = null
 		var conf: Config = null
 
 		val writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f_in)))
@@ -33,10 +33,11 @@ object Demo extends Controller {
 			conf = new Config(Array("-d", System.getProperty("java.io.tmpdir"), "--source-only", f_in.getAbsolutePath))     // set up configuration based on program arguments
 			val prep = new Preprocessor()(conf)     // create preprocessor
 
-			val (outfiles, (tmpDir, prepDir)::_) = prep.run()        // fetch the array of (already saved) preprocessed files
-			f_out = outfiles.head
-			tmpDir2delete = tmpDir
+			val (translatedFiles, dirs) = prep.run()
+			val tmpDirs :+ ((tmpDir, prepDir)) :+ ((lastDir, lastPrepDir)): List[(File, File)] = dirs
+			toDelete = tmpDir :: prepDir :: lastDir :: lastPrepDir :: tmpDirs.foldLeft[List[File]](List()){ case (z, (a,b)) => a :: b :: z}
 
+			f_out = translatedFiles.head
 			val output = scala.io.Source.fromFile(f_out).mkString
 			Ok(output)
 
@@ -51,7 +52,7 @@ object Demo extends Controller {
 			try f_out.delete()
 			catch {case e: NullPointerException => ; }
 
-			try FileTreeWalker.recursiveDelete(tmpDir2delete)
+			try toDelete.foreach(FileTreeWalker.recursiveDelete)
 			catch {case e: NullPointerException => ; }
 
 			try FileTreeWalker.recursiveDelete(conf.workDir)
