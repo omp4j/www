@@ -15,7 +15,7 @@ libraryDependencies ++= Seq(
 
 libraryDependencies += "org.scalatest" % "scalatest_2.10" % "2.0" % "test"
 
-libraryDependencies += "org.antlr.v4" % "runtime" % "4.4" from "http://omp4j.petrbel.cz/antlr-runtime-4.4.jar"
+libraryDependencies += "org.antlr.v4" % "runtime" % "4.7" from "https://www.antlr.org/download/antlr-4.7.1-complete.jar"
 
 unmanagedSourceDirectories in Compile += baseDirectory.value / "omp4j/src/main"
 
